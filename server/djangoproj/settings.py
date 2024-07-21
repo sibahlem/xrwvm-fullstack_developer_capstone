@@ -38,7 +38,7 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [ # The last six are default
-    'djangoapp.apps.DjangoappConfig', # The DjangoappConfig is a configuration class that represents the djangoapp app. (Jus standard procedure; how we add a django app)
+    'djangoapp.apps.DjangoappConfig', # The DjangoappConfig is a configuration class that represents the djangoapp app. (Jus standard procedure; how we add/register a django app)
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
