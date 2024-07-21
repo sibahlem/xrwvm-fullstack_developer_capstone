@@ -37,7 +37,7 @@ REST_FRAMEWORK = {
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [ # The last six are default
     'djangoapp.apps.DjangoappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
