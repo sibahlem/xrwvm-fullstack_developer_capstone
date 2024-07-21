@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# This is React app as the frontend of our Django App. (3d party frontend)
 
 ## Available Scripts
 
