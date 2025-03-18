@@ -1,3 +1,7 @@
+# Diff 'tween url's in proj container and Django app:
+# Django proj --> 
+# Django App -->
+
 """djangoproj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,10 +23,16 @@ from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
 
-urlpatterns = [
+urlpatterns = [ # Here we give/ map the pages(now seen as views) we created to a url pattern (location), so they can be found. Declare to route. 
+    # The pages being routed here as templates views are the external templates/pages (from 3d party frontend and not actual views from django app, hence they cannot be routed in the django urls file, so only apperar in the base urls file)
     path('admin/', admin.site.urls),
     path('djangoapp/', include('djangoapp.urls')),
     path('', TemplateView.as_view(template_name="Home.html")),
     path('about/', TemplateView.as_view(template_name="About.html")),
     path('contact/', TemplateView.as_view(template_name="Contact.html")),
+    path('login/', TemplateView.as_view(template_name="index.html")),
+    path('logout/', TemplateView.as_view(template_name="index.html")),
+    path('register/', TemplateView.as_view(template_name="index.html")),
+    #path('frontend/', include('djangoapp.urls')),
+    #path(('login/', views.login_request, name='login')),
  ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

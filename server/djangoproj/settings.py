@@ -38,7 +38,7 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [
-    'djangoapp.apps.DjangoappConfig',
+    'djangoapp.apps.DjangoappConfig', # Seen in the apps.py file from 'djangoapp' folder;
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,7 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
                 'DIRS': [
-            os.path.join(BASE_DIR,'frontend/static')
+            os.path.join(BASE_DIR,'frontend/static'), #  For Django application to recognize the front-end static files. 
+            os.path.join(BASE_DIR, 'frontend/build'), # Path that Django application uses to recognize the front end.
+            os.path.join(BASE_DIR, 'frontend/build/static'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -136,7 +138,9 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'frontend/static')
+STATICFILES_DIRS = [ # directories for the Django application to look for static files to the list named (to look at the end of the file).
+    os.path.join(BASE_DIR,'frontend/static'),
+    os.path.join(BASE_DIR, 'frontend/build'),
+    os.path.join(BASE_DIR, 'frontend/build/static'), # Why are we adding /build and /build/static ?
 ]
 
