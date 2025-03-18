@@ -47,6 +47,7 @@ def logout_request(request):
 @csrf_exempt
 def registration(request):
     context = {}
+    # Get new user name, surname, username, email and password from request.POST dictionary
     data = json.loads(request.body)
     username = data['userName']
     password = data['password']
