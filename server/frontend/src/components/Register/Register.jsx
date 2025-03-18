@@ -46,8 +46,8 @@ const Register = () => {
         <div className="header" style={{display: "flex",flexDirection: "row", justifyContent: "space-between"}}>
             <span className="text" style={{flexGrow:"1"}}>SignUp</span> 
             <div style={{display: "flex",flexDirection: "row", justifySelf: "end", alignSelf: "start" }}>
-            <a href="/" onClick={()=>{gohome()}}>
-              Go Home
+            <a href="/" onClick={()=>{gohome()}} style={{fontSize:"20px"}}>
+            Go Home
             </a>
             </div>
             <hr/>
