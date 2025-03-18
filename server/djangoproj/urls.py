@@ -19,7 +19,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView # templateview allows for views and templates to be routed to and displayed as one/ static html page with logic from view function?
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -27,7 +27,7 @@ urlpatterns = [ # Here we give/ map the pages(now seen as views) we created to a
     # The pages being routed here as templates views are the external templates/pages (from 3d party frontend and not actual views from django app, hence they cannot be routed in the django urls file, so only apperar in the base urls file)
     path('admin/', admin.site.urls),
     path('djangoapp/', include('djangoapp.urls')),
-    path('', TemplateView.as_view(template_name="Home.html")),
+    path('', TemplateView.as_view(template_name="Home.html")), 
     path('about/', TemplateView.as_view(template_name="About.html")),
     path('contact/', TemplateView.as_view(template_name="Contact.html")),
     path('login/', TemplateView.as_view(template_name="index.html")),
