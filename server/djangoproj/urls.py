@@ -33,6 +33,6 @@ urlpatterns = [ # Here we give/ map the pages(now seen as views) we created to a
     path('login/', TemplateView.as_view(template_name="index.html")),
     path('logout/', TemplateView.as_view(template_name="index.html")),
     path('register/', TemplateView.as_view(template_name="index.html")),
-    #path('frontend/', include('djangoapp.urls')),
+    path('frontend/', include('djangoapp.urls')),
     #path(('login/', views.login_request, name='login')),
  ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

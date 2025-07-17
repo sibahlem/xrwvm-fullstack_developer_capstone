@@ -1,3 +1,5 @@
+// schema 'structure' for how json data in reviews.json should be structured then to be loaded into MongoDB and served through endpoints.
+
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
