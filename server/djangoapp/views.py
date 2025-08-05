@@ -13,14 +13,16 @@ from django.contrib.auth import login, authenticate
 import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
-from .populate import initiate
+from .populate import initiate #see use in line 86
+from .models import CarMake, CarModel
 
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
 
-# Create your views here. (i guess views are like the functionality between models (data) on templates (structure) of app)
+# Create your views here. (i guess views (like previous 'controller' of MVC pattern) are like the functionality between models (data) on templates (structure) of app). Views only describe the logic of a page (Template) not how the info is presented.)
+# And then by the way, the 'template' of this our app would be the frontend React folder.
 
 # Create a `login_request` view to handle sign in request; i guess a view is nothing but a js func/module. This is a function based view. And this fuction represents one view which will be routed on it's own to a url (given it's own url).
 @csrf_exempt
@@ -76,6 +78,17 @@ def registration(request):
         data = {"userName":username,"error":"Already Registered"}
         return JsonResponse(data)
 
+#  method to get the list of cars
+def get_cars(request):
+    count = CarMake.objects.filter().count()
+    print(count)
+    if(count == 0):
+        initiate() #What does this method do? Pre-populates your database with car makes and model and Only runs once when the database is empty, preventing duplicate data loading.
+    car_models = CarModel.objects.select_related('car_make')
+    cars = []
+    for car_model in car_models:
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
+    return JsonResponse({"CarModels":cars})
 
 # # Update the `get_dealerships` view to render the index page with
 # a list of dealerships

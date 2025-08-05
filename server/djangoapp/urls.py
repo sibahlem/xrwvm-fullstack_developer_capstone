@@ -1,5 +1,5 @@
 # this url file is different from the urls in djangoproj, as these handle view requests from the views file under the same folder.
-# And the url file in django actually *include* this/these url(s) file. And then urls from frontend folder.
+# And the url file in djangoprj actually *include* this/these url(s) file. And then urls from frontend folder.
 # Uncomment the imports before you add the code
 from django.urls import path
 from django.conf.urls.static import static
@@ -16,6 +16,9 @@ urlpatterns = [
 
     # path for logout
     path(route='logout', view=views.logout_request, name='logout'),
+
+    # path for get_cars
+    path(route='get_cars', view=views.get_cars, name ='getcars'),
 
     # path for dealer reviews view
 
